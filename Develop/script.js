@@ -1,5 +1,7 @@
 //I need arrays of all acceptable special characters
 //I need an alert for if none of the character types are selected
+//I need a function that stores the confirms and sends them to writePassword function
+//I need the writePassword function to generate randomly
 
 // Assignment code here
 var prompts = function (generateBtn) {
