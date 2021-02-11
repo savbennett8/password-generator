@@ -1,4 +1,18 @@
-//I need arrays of all acceptable special characters
+//I need variables for each element, but I think they're already stored in 'prompts' function. 
+//I think this is going to cause some scoping issues
+let length = inputLength;
+let lowerConfirm = true; //also not sure what to put for these values
+let upperConfirm = true;
+let numConfirm = true;
+let specialConfirm = true;
+
+//I need a variable of all acceptable characters
+const passKeys = {
+  lowercase: 'abcedfghijklmnopqrstuvwxyz',
+  uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  number: '0123456789',
+  symbol: '!@#$%^&*(){}[];'
+};
 //I need an alert for if none of the character types are selected
 //I need a function that stores the confirms and sends them to writePassword function
 //I need the writePassword function to generate randomly
@@ -8,11 +22,13 @@ var prompts = function (generateBtn) {
   var length = window.prompt("How many characters should your password have? (Between 8 - 128)");
   if (length >= 8 && length <= 128) {
     //I need to somehow store this value to use in the writePassword function
+    //var inputLength = document.querySelector('input[length]');
+    //console.log(inputLength);
   } else {
     window.alert("Sorry, please select a number between 8 and 128.");
     prompts();
   };
-  
+
   var lowerConfirm = window.confirm("Do you want your passwork to include lowercase letters?");
   if (lowerConfirm) {
     //use lowercase letters in writePassword function
