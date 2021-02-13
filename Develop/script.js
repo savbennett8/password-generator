@@ -5,12 +5,9 @@ const passKeys = {
   number: '0123456789',
   symbol: '!@#$%^&*(){}[];'
 };
-//I need an alert for if none of the character types are selected
 
-//I need a function that stores the confirms and sends them to writePassword function
+//stores the confirms so they can be accesed in the writePassword function
 let promptInput = [];
-
-//I need the writePassword function to generate randomly
 
 // Assignment code here
 var prompts = function (generateBtn) {
@@ -18,7 +15,7 @@ var prompts = function (generateBtn) {
   
   var length = window.prompt("How many characters should your password have? (Between 8 - 128)");
   if (length >= 8 && length <= 128) {
-    //I need to somehow store this value to use in the writePassword function
+    //push the user's input into the promptInput array
     promptInput.push(length);
     console.log(promptInput);
   } else {
@@ -50,12 +47,20 @@ var prompts = function (generateBtn) {
     console.log(promptInput);
   };
 
+  //alert for if none of the character types are selected
+  if (lowerConfirm === false && upperConfirm === false && 
+    numConfirm === false && specialConfirm === false) {
+      window.alert("Please select at least one character type.");
+      prompts();
+  }
+
   //writePassword();
 }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+//I need the writePassword function to generate randomly
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
