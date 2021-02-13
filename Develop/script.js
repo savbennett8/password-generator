@@ -1,11 +1,3 @@
-//I need variables for each element, but I think they're already stored in 'prompts' function. 
-//I think this is going to cause some scoping issues
-let length = inputLength;
-let lowerConfirm = true; //also not sure what to put for these values
-let upperConfirm = true;
-let numConfirm = true;
-let specialConfirm = true;
-
 //I need a variable of all acceptable characters
 const passKeys = {
   lowercase: 'abcedfghijklmnopqrstuvwxyz',
@@ -14,16 +6,21 @@ const passKeys = {
   symbol: '!@#$%^&*(){}[];'
 };
 //I need an alert for if none of the character types are selected
+
 //I need a function that stores the confirms and sends them to writePassword function
+let promptInput = [];
+
 //I need the writePassword function to generate randomly
 
 // Assignment code here
 var prompts = function (generateBtn) {
+  //generateBtn.preventDefault();
+  
   var length = window.prompt("How many characters should your password have? (Between 8 - 128)");
   if (length >= 8 && length <= 128) {
     //I need to somehow store this value to use in the writePassword function
-    //var inputLength = document.querySelector('input[length]');
-    //console.log(inputLength);
+    promptInput.push(length);
+    console.log(promptInput);
   } else {
     window.alert("Sorry, please select a number between 8 and 128.");
     prompts();
@@ -31,22 +28,26 @@ var prompts = function (generateBtn) {
 
   var lowerConfirm = window.confirm("Do you want your passwork to include lowercase letters?");
   if (lowerConfirm) {
-    //use lowercase letters in writePassword function
+    promptInput.push(lowerConfirm);
+    console.log(promptInput);
   };
   
   var upperConfirm = window.confirm("Do you want your password to include uppercase letters?");
   if (upperConfirm) {
-    //use uppercase letters in writePassword function
+    promptInput.push(upperConfirm);
+    console.log(promptInput);
   };
   
   var numConfirm = window.confirm("Do you want your password to include numbers?");
   if (numConfirm) {
-    //use numbers in writePassword function
+    promptInput.push(numConfirm);
+    console.log(promptInput);
   };
   
   var specialConfirm = window.confirm("Do you want your password to include special characters?");
   if (specialConfirm) {
-    //use special characters in writePassword function
+    promptInput.push(specialConfirm);
+    console.log(promptInput);
   };
 
   //writePassword();
